@@ -1,0 +1,214 @@
+/* 
+
+a estrura de variável (var), abre e fecha parenteses + o nome da variável dentro
+funciona como uma função css, 
+a função é a var e estamos enviando um valor cor de fundo pra ela através dos parenteses
+essa função fará todo o trabalho internamente e retornará o valor que definimos no 'root'
+
+perceba que a classe 'container' também foi criada dentro da section, até poderiamos ter utilizado a classe
+'main' para inserir as propriedades que foram inseridas na classe 'container', entretanto, a ideia é reutilzar
+a classe 'c'ontainer' nas outras sections, ainfal, cada uma das sessões ocupam 100vh
+
+diferença na forma em que as imagens foram inseridas
+se fizer sentido para o usuário, insira a imagem usando a tag <img>, diretamente no html
+se for uma imagem decorativa, utiliza a propriedade background-image, diretamente no css
+
+botão ( <button> ) - utilizado para executar uma função ao ser clicado, por exemplo: apagar os dados do formulário 
+ancora ( <a> ) - utilizado para navegar entre sessões e/ou páginas da aplicação 
+
+display: grid; faz a separação dos elementos de bloco contidos em um container, por exemplo
+
+deixamos o body com as letras padronizadas (font-family: var(--main-font); / font-size: 16px; / font-weight: 400;)
+com isso toda a págima teve as propridades da fonte padronizadas e
+alteremos esse padrão de acordo com a necessidade de cada elemento (paragrafo / botão / etc) 
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --white-primary: #FFFFFF;
+    --gray-secondary: #C0C0C0;
+    --blue-button: #167BF7;
+    --background-color: #00030C; 
+    --main-font: "Inter";
+}
+
+* {
+    margin: 0;
+    padding: 0; 
+}
+
+img {
+    border: solid 1px rgb(0, 255, 255);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--white-primary);
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+.main {
+    background-image: url(./img/Background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* centraliza o conteúdo no centro da coluna */
+    align-items: center; 
+    /* centraliza todo conteúdo contido em um elemento em bloco */
+    text-align: center;
+}
+
+/* essa classe será usada em todas as seções */
+.container {
+    height: 100vh;
+    /* separa cada elemento dentro de um container (um do lado do outro ou um embaixo do outro) à deepender do propósito*/
+    display: grid;
+    /* divide as tags section e div para que cada uma delas ocupem 50% da tela */
+    grid-template-columns: 50% 50%;
+}
+
+/* essa classe aplíca uma margem (em todos os cantos) da div da primeira seção */
+.container__box {
+    /* (0 -> margin-top e margin-botton / 6em -> margin-left e margin-right) */
+    margin: 0 6em;
+}
+
+.container__title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.container__img {
+    /* (1em -> margin-top / 0 -> margin-right / 2em -> margin-botton / 0 -> margin-left) */
+    margin: 1em 0 2em 0;
+}
+
+.container__button__one {
+    background-color: var(--blue-button);
+    border-radius: 8px;
+    padding: 1em;
+    color: var(--white-primary);
+    /* block - faz com que o botão saia da posição in-line (do lado da imagem) e se posicione embaixo dela */
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.container__button__two {
+    background-color: transparent;
+    border: 2px solid var(--white-primary);
+    border-radius: 8px;
+    padding: 1em;
+    color: var(--white-primary);
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.container__warning {
+    font-size: 12px;
+    color: var(--gray-secondary)
+}
+
+.secondary {
+    align-items: center;
+    margin: 0 10em;
+}
+
+/* essa classe serve para que a imagem não estoure se tratando de um outro tamanho de tela */
+.secondary__img {
+    width: 80%;
+}
+
+.description__tilte {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--white-primary);
+    margin-bottom: 0.1em;
+}
+
+.description__paragraph {
+    font-size: 16px;
+    color: var(--gray-secondary);
+}
+
+.container__botton__three {
+    background-color: var(--blue-button);
+    border-radius: 8px;
+    padding: 1em;
+    color: var(--white-primary);
+    /* inline-block, faz com que o elemento ocupe apenas o espaço dele mesmo,  */
+    /* enquanto o block faz com que o elemento ocupe toda a linha, sendo preciso manipular o tamanho com width e height */
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 1em;
+    /* display: block; */
+    /* width: 134px; */
+    /* font-size: 15px; */ 
+}
+
+.tertiary__image {
+    width: 80%;
+}
+
+.container__description {
+    padding: 2em;
+}
+
+.devices {
+    /* centraliza elementos in-line */
+    text-align: center;
+}
+
+.devices__title {
+    font-size: 48px;
+    color: var(--white-primary);
+}
+
+.devices__lists {
+    /* também poderiamos ter usado o display grid para colocarmos as imagens uma do lado da outra */
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 5em 0;
+}
+
+.list__item {
+    font-size: 20px;
+    color: var(--white-primary);
+}
+
+.baseboard {
+    text-align: center;
+}
+
+.baseboard__list {
+    /* posiciona cada elemento da lista (ul) um do lado do outro */
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+}
+
+.list__link {
+    list-style-type: none;
+}
+
+.list__link a {
+    text-decoration: none;
+}
+
+.list__link a {
+    color: var(--white-primary)
+}
+
+.list__link a:hover {
+    color: var(--blue-button);
+}
+
+.baseboard__text {
+    color: var(--gray-secondary);
+    margin: 2em;
+}
